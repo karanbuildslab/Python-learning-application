@@ -1,0 +1,2889 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PyLearn | Learn Python</title>
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#070911;
+    --bg2:#0c101b;
+    --card:#111725;
+    --card2:#151c2c;
+    --text:#f5f2ff;
+    --muted:#a3adbf;
+    --purple:#8065ff;
+    --purple2:#a995ff;
+    --gold:#d8b86a;
+    --border:#293247;
+    --green:#43d98b;
+}
+
+body{
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            #241b4b 0,
+            #070911 35%
+        );
+
+    color:var(--text);
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    min-height:100vh;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    background:rgba(7,9,17,.9);
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+    max-width:1250px;
+    margin:auto;
+
+    padding:15px 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--purple2);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.nav-btn{
+    text-decoration:none;
+    color:#cbd2df;
+
+    padding:9px 13px;
+
+    border:1px solid transparent;
+    border-radius:8px;
+
+    font-size:14px;
+
+    transition:.2s;
+}
+
+.nav-btn:hover{
+    color:white;
+    border-color:var(--border);
+    background:#121827;
+}
+
+.nav-primary{
+    background:var(--purple);
+    color:white;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    max-width:1250px;
+    margin:auto;
+
+    padding:
+        90px 20px
+        70px;
+
+    display:grid;
+    grid-template-columns:
+        1.2fr .8fr;
+
+    gap:40px;
+
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border:1px solid #4d3d92;
+    border-radius:30px;
+
+    background:#15112a;
+
+    color:#c7baff;
+
+    font-size:12px;
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:
+        clamp(45px,7vw,78px);
+
+    line-height:1;
+
+    letter-spacing:-3px;
+
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:var(--purple2);
+}
+
+.hero-text{
+    color:var(--muted);
+
+    max-width:650px;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+    border:0;
+
+    padding:13px 20px;
+
+    border-radius:9px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    display:inline-block;
+
+    transition:.25s;
+}
+
+.primary-btn{
+    background:
+        linear-gradient(
+            135deg,
+            #8a70ff,
+            #6046dc
+        );
+
+    color:white;
+
+    box-shadow:
+        0 10px 30px rgba(107,80,230,.25);
+}
+
+.primary-btn:hover{
+    transform:translateY(-2px);
+}
+
+.secondary-btn{
+    color:white;
+
+    background:#141b29;
+
+    border:1px solid var(--border);
+}
+
+.secondary-btn:hover{
+    border-color:var(--purple);
+}
+
+.hero-card{
+    background:
+        linear-gradient(
+            145deg,
+            #181e2e,
+            #0c1019
+        );
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.4);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.hero-card::before{
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    background:var(--purple);
+
+    filter:blur(120px);
+
+    opacity:.15;
+
+    top:-100px;
+    right:-50px;
+}
+
+.python-logo{
+    font-size:100px;
+
+    margin-bottom:15px;
+}
+
+.hero-card h2{
+    font-size:25px;
+
+    margin-bottom:10px;
+}
+
+.hero-card p{
+    color:var(--muted);
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.container{
+    max-width:1250px;
+    margin:auto;
+    padding:20px;
+}
+
+.layout{
+    display:grid;
+    grid-template-columns:280px 1fr;
+
+    gap:25px;
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar{
+    position:sticky;
+
+    top:85px;
+
+    height:
+        calc(100vh - 105px);
+
+    overflow:auto;
+
+    background:rgba(17,23,37,.92);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:15px;
+}
+
+.sidebar h3{
+    margin-bottom:15px;
+}
+
+.search{
+    width:100%;
+
+    padding:11px 12px;
+
+    background:#080c14;
+
+    color:white;
+
+    border:1px solid var(--border);
+
+    border-radius:8px;
+
+    outline:none;
+
+    margin-bottom:14px;
+}
+
+.search:focus{
+    border-color:var(--purple);
+}
+
+.topic{
+    width:100%;
+
+    display:block;
+
+    text-align:left;
+
+    background:transparent;
+
+    border:0;
+
+    color:#a9b2c3;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    margin-bottom:3px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.topic:hover,
+.topic.active{
+    color:white;
+
+    background:#1b1733;
+}
+
+.progress-box{
+    margin-top:20px;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    background:#151c2b;
+
+    border:1px solid var(--border);
+}
+
+.progress-box p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-top:7px;
+}
+
+.progress-bar{
+    height:7px;
+
+    background:#252c3b;
+
+    border-radius:20px;
+
+    margin-top:10px;
+
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:0%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6650e5,
+            #a38fff
+        );
+
+    transition:.4s;
+}
+
+
+/* =====================================================
+   NOTES
+===================================================== */
+
+.note{
+    background:
+        linear-gradient(
+            145deg,
+            #111725,
+            #0c111b
+        );
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:32px;
+
+    margin-bottom:25px;
+}
+
+.note h1{
+    font-size:36px;
+
+    margin-bottom:12px;
+}
+
+.note h2{
+    color:#c7bcff;
+
+    margin:
+        28px 0 12px;
+}
+
+.note h3{
+    margin:
+        20px 0 10px;
+}
+
+.note p,
+.note li{
+    color:#b1bacb;
+
+    line-height:1.75;
+}
+
+.note ul{
+    padding-left:22px;
+}
+
+.definition{
+    background:#18152b;
+
+    border-left:
+        4px solid var(--purple);
+
+    padding:16px;
+
+    border-radius:6px;
+
+    margin:
+        20px 0;
+
+    color:#c9cde0;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   CODE EXAMPLES
+===================================================== */
+
+.code-example{
+    position:relative;
+
+    background:#06090e;
+
+    border:
+        1px solid #252d3e;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    margin:
+        16px 0;
+}
+
+.code-header{
+    padding:9px 13px;
+
+    color:#909bad;
+
+    font-size:12px;
+
+    border-bottom:
+        1px solid #202736;
+}
+
+pre{
+    padding:18px;
+
+    overflow:auto;
+
+    color:#e2e5ed;
+
+    line-height:1.65;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:14px;
+}
+
+.copy{
+    position:absolute;
+
+    right:9px;
+    top:6px;
+
+    background:#20283a;
+
+    border:0;
+
+    color:white;
+
+    padding:5px 9px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+}
+
+.mark-complete{
+    margin-top:20px;
+
+    background:#14251d;
+
+    color:#7be5a6;
+
+    border:1px solid #275c3e;
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   CODE RUNNER
+===================================================== */
+
+.runner{
+    background:
+        linear-gradient(
+            145deg,
+            #151c2b,
+            #0b1019
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius:17px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+}
+
+.runner h2{
+    margin-bottom:8px;
+}
+
+.runner-description{
+    color:var(--muted);
+
+    line-height:1.6;
+
+    margin-bottom:18px;
+}
+
+textarea{
+    width:100%;
+
+    min-height:250px;
+
+    resize:vertical;
+
+    background:#05080d;
+
+    color:#e6e8ef;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:10px;
+
+    padding:16px;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:14px;
+
+    outline:none;
+}
+
+textarea:focus{
+    border-color:var(--purple);
+}
+
+.actions{
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:12px;
+}
+
+.output{
+    min-height:110px;
+
+    margin-top:16px;
+
+    padding:15px;
+
+    background:#040609;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:10px;
+
+    color:#9de9bc;
+
+    white-space:pre-wrap;
+
+    font-family:
+        Consolas,
+        monospace;
+}
+
+.output.error{
+    color:#ff8c9c;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.royal-section{
+    max-width:1250px;
+
+    margin:
+        70px auto;
+
+    padding:
+        70px 25px;
+
+    text-align:center;
+
+    position:relative;
+}
+
+.section-badge{
+    display:inline-block;
+
+    padding:8px 15px;
+
+    border:
+        1px solid #51409a;
+
+    border-radius:30px;
+
+    background:#15112a;
+
+    color:#c9bdff;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    margin-bottom:18px;
+}
+
+.royal-title{
+    font-size:
+        clamp(32px,5vw,52px);
+
+    line-height:1.15;
+
+    margin-bottom:18px;
+}
+
+.royal-title span{
+    color:var(--purple2);
+}
+
+.royal-description{
+    max-width:700px;
+
+    margin:
+        0 auto 40px;
+
+    color:var(--muted);
+
+    line-height:1.8;
+}
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+
+    text-align:left;
+}
+
+.royal-card{
+    background:
+        linear-gradient(
+            145deg,
+            #171e2e,
+            #0c111a
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:25px;
+
+    transition:.25s;
+}
+
+.royal-card:hover{
+    transform:translateY(-6px);
+
+    border-color:#715de0;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.3);
+}
+
+.card-icon{
+    font-size:35px;
+
+    margin-bottom:17px;
+}
+
+.royal-card h3{
+    margin-bottom:10px;
+}
+
+.royal-card p{
+    color:#9da8ba;
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-section{
+    border-top:
+        1px solid #20283a;
+}
+
+.contact-card{
+    max-width:600px;
+
+    margin:auto;
+
+    padding:45px 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #181f30,
+            #0b1019
+        );
+
+    border:
+        1px solid #353e56;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.4);
+}
+
+.contact-icon{
+    font-size:55px;
+
+    margin-bottom:15px;
+}
+
+.contact-card h3{
+    font-size:28px;
+
+    margin-bottom:10px;
+}
+
+.contact-card p{
+    color:var(--muted);
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+}
+
+.email-button{
+    display:inline-block;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8065ff,
+            #5e44da
+        );
+
+    padding:
+        13px 25px;
+
+    border-radius:9px;
+
+    font-weight:bold;
+
+    transition:.25s;
+}
+
+.email-button:hover{
+    transform:translateY(-2px);
+}
+
+.email-address{
+    margin-top:18px;
+
+    color:#bdb3ee;
+
+    font-family:monospace;
+
+    font-size:14px;
+
+    word-break:break-all;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    border-top:
+        1px solid #20283a;
+
+    text-align:center;
+
+    padding:
+        40px 20px;
+
+    color:#788398;
+
+    margin-top:60px;
+}
+
+.footer-logo{
+    color:white;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    margin-bottom:10px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:950px){
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .about-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:800px){
+
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        position:relative;
+
+        top:0;
+
+        height:auto;
+
+        max-height:350px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+}
+
+@media(max-width:550px){
+
+    .hero{
+        padding:
+            60px 15px;
+    }
+
+    .hero h1{
+        font-size:43px;
+
+        letter-spacing:-2px;
+    }
+
+    .hero-card{
+        padding:30px 20px;
+    }
+
+    .container{
+        padding:12px;
+    }
+
+    .note{
+        padding:20px;
+    }
+
+    .note h1{
+        font-size:29px;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .royal-section{
+        padding:
+            50px 15px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="nav">
+
+    <div class="logo">
+        Py<span>Learn</span> 🐍
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#home" class="nav-btn">
+            Home
+        </a>
+
+        <a href="#about" class="nav-btn">
+            About
+        </a>
+
+        <a href="#contact" class="nav-btn">
+            Contact
+        </a>
+
+        <button
+            class="nav-btn nav-primary"
+            onclick="showRunner()">
+            Code Runner
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+<div>
+
+    <div class="badge">
+        PYTHON LEARNING PLATFORM
+    </div>
+
+    <h1>
+        Learn Python.<br>
+        <span>Build Anything.</span>
+    </h1>
+
+    <p class="hero-text">
+        Learn Python from beginner to advanced level
+        with simple notes, examples, practice and
+        a Python code runner.
+    </p>
+
+    <div class="hero-buttons">
+
+        <button
+            class="primary-btn"
+            onclick="loadTopic('intro')">
+            Start Learning
+        </button>
+
+        <button
+            class="secondary-btn"
+            onclick="showRunner()">
+            ▶ Try Code
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="hero-card">
+
+    <div class="python-logo">
+        🐍
+    </div>
+
+    <h2>
+        Python Learning Lab
+    </h2>
+
+    <p>
+        Notes • Practice • Projects • Code Runner
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     LEARNING AREA
+===================================================== -->
+
+<div class="container">
+
+<div class="layout">
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <h3>
+        Python Topics
+    </h3>
+
+    <input
+        class="search"
+        id="search"
+        placeholder="Search topic..."
+        oninput="searchTopics()"
+    >
+
+    <div id="topicList"></div>
+
+    <div class="progress-box">
+
+        <strong>
+            Learning Progress
+        </strong>
+
+        <p id="progressText">
+            0% completed
+        </p>
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill"
+                id="progress">
+            </div>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- CONTENT -->
+
+<main
+    class="content"
+    id="content">
+</main>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    class="royal-section"
+    id="about">
+
+    <div class="section-badge">
+        ABOUT PYLEARN
+    </div>
+
+    <h2 class="royal-title">
+        Learn Python With
+        <span>Confidence.</span>
+    </h2>
+
+    <p class="royal-description">
+
+        PyLearn is a student-friendly Python learning
+        platform designed to make programming simple,
+        practical and enjoyable.
+
+    </p>
+
+
+    <div class="about-grid">
+
+
+        <div class="royal-card">
+
+            <div class="card-icon">
+                📚
+            </div>
+
+            <h3>
+                Complete Notes
+            </h3>
+
+            <p>
+                Learn Python concepts from basic syntax
+                to advanced programming with simple
+                explanations and examples.
+            </p>
+
+        </div>
+
+
+        <div class="royal-card">
+
+            <div class="card-icon">
+                💻
+            </div>
+
+            <h3>
+                Practice Code
+            </h3>
+
+            <p>
+                Write Python programs and practice your
+                coding skills using the built-in code runner.
+            </p>
+
+        </div>
+
+
+        <div class="royal-card">
+
+            <div class="card-icon">
+                🚀
+            </div>
+
+            <h3>
+                Build Projects
+            </h3>
+
+            <p>
+                Turn your knowledge into real projects
+                such as calculators, games and management
+                systems.
+            </p>
+
+        </div>
+
+
+        <div class="royal-card">
+
+            <div class="card-icon">
+                🎯
+            </div>
+
+            <h3>
+                Learn Step-by-Step
+            </h3>
+
+            <p>
+                Follow a structured learning path instead
+                of jumping randomly between Python topics.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section
+    class="royal-section contact-section"
+    id="contact">
+
+    <div class="section-badge">
+        GET IN TOUCH
+    </div>
+
+    <h2 class="royal-title">
+        Have a
+        <span>Question?</span>
+    </h2>
+
+    <p class="royal-description">
+
+        Have a question, suggestion or feedback about
+        PyLearn? Feel free to contact me.
+
+    </p>
+
+
+    <div class="contact-card">
+
+        <div class="contact-icon">
+            ✉️
+        </div>
+
+        <h3>
+            Contact Me
+        </h3>
+
+        <p>
+            I would love to hear your suggestions,
+            feedback and ideas for improving PyLearn.
+        </p>
+
+        <a
+            class="email-button"
+            href="mailto:karanmandal1303@gmail.com?subject=PyLearn%20Website%20Contact">
+
+            ✉ Send Email
+
+        </a>
+
+        <div class="email-address">
+            karanmandal1303@gmail.com
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-logo">
+        PyLearn 🐍
+    </div>
+
+    <p>
+        Learn Python. Practice Python. Build with Python.
+    </p>
+
+    <p style="margin-top:10px;">
+        © 2026 PyLearn
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   PYTHON TOPICS
+===================================================== */
+
+const topics = [
+
+{
+id:"intro",
+title:"1. Introduction to Python",
+content:`
+
+<h1>
+Introduction to Python
+</h1>
+
+<div class="definition">
+
+<strong>Python</strong> is a high-level,
+general-purpose programming language
+known for its simple and readable syntax.
+
+</div>
+
+<h2>
+Why learn Python?
+</h2>
+
+<ul>
+
+<li>Easy syntax</li>
+<li>Used in web development</li>
+<li>Used in automation</li>
+<li>Used in data science</li>
+<li>Used in AI and machine learning</li>
+<li>Large library ecosystem</li>
+
+</ul>
+
+<h2>
+First Python Program
+</h2>
+
+<div class="code-example">
+
+<div class="code-header">
+Python
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>print("Hello, World!")</pre>
+
+</div>
+
+<p>
+The print() function displays information
+on the screen.
+</p>
+
+`
+},
+
+{
+id:"variables",
+title:"2. Variables",
+content:`
+
+<h1>
+Variables
+</h1>
+
+<div class="definition">
+
+A variable is a name used to store
+a value.
+
+</div>
+
+<div class="code-example">
+
+<div class="code-header">
+Python
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>name = "Karan"
+age = 13
+height = 5.0
+
+print(name)
+print(age)
+print(height)</pre>
+
+</div>
+
+<h2>
+Important
+</h2>
+
+<ul>
+
+<li>Use meaningful names.</li>
+<li>Python detects the data type automatically.</li>
+<li>= is used for assignment.</li>
+
+</ul>
+
+`
+},
+
+{
+id:"datatypes",
+title:"3. Data Types",
+content:`
+
+<h1>
+Data Types
+</h1>
+
+<p>
+Python provides different types of data.
+</p>
+
+<ul>
+
+<li>int — whole numbers</li>
+<li>float — decimal numbers</li>
+<li>str — text</li>
+<li>bool — True or False</li>
+<li>list — ordered collection</li>
+<li>tuple — immutable collection</li>
+<li>set — unique values</li>
+<li>dict — key-value data</li>
+
+</ul>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>age = 13
+price = 99.5
+name = "Karan"
+student = True
+
+print(type(age))
+print(type(price))
+print(type(name))
+print(type(student))</pre>
+
+</div>
+
+`
+},
+
+{
+id:"operators",
+title:"4. Operators",
+content:`
+
+<h1>
+Operators
+</h1>
+
+<h2>
+Arithmetic Operators
+</h2>
+
+<p>
++, -, *, /, //, %, **
+</p>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>a = 10
+b = 3
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a % b)
+print(a ** b)</pre>
+
+</div>
+
+`
+},
+
+{
+id:"input",
+title:"5. Input & Output",
+content:`
+
+<h1>
+Input and Output
+</h1>
+
+<p>
+input() takes information from the user.
+</p>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>name = input("Enter your name: ")
+
+print("Hello", name)</pre>
+
+</div>
+
+<h2>
+Type Conversion
+</h2>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>age = int(input("Enter age: "))
+
+print(age + 1)</pre>
+
+</div>
+
+`
+},
+
+{
+id:"conditions",
+title:"6. If / Elif / Else",
+content:`
+
+<h1>
+Conditional Statements
+</h1>
+
+<p>
+Conditions allow programs to make decisions.
+</p>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>age = 18
+
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")</pre>
+
+</div>
+
+`
+},
+
+{
+id:"loops",
+title:"7. Loops",
+content:`
+
+<h1>
+Loops
+</h1>
+
+<p>
+Loops repeat code multiple times.
+</p>
+
+<h2>
+For Loop
+</h2>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>for i in range(5):
+    print(i)</pre>
+
+</div>
+
+<h2>
+While Loop
+</h2>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>count = 1
+
+while count <= 5:
+    print(count)
+    count += 1</pre>
+
+</div>
+
+`
+},
+
+{
+id:"strings",
+title:"8. Strings",
+content:`
+
+<h1>
+Strings
+</h1>
+
+<p>
+A string is a sequence of characters.
+</p>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>name = "Python"
+
+print(name.upper())
+print(name.lower())
+print(name.replace("P", "J"))
+print(len(name))</pre>
+
+</div>
+
+<h2>
+Common Methods
+</h2>
+
+<p>
+upper(), lower(), strip(), replace(),
+split(), find(), count()
+</p>
+
+`
+},
+
+{
+id:"lists",
+title:"9. Lists",
+content:`
+
+<h1>
+Lists
+</h1>
+
+<div class="definition">
+
+A list stores multiple values in an ordered
+and changeable collection.
+
+</div>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>numbers = [10, 20, 30]
+
+numbers.append(40)
+
+numbers.insert(1, 15)
+
+print(numbers)
+
+numbers.pop()
+
+print(numbers)</pre>
+
+</div>
+
+<p>
+Important methods:
+append(), extend(), insert(), pop(),
+remove(), sort(), reverse(), count(),
+index(), clear()
+</p>
+
+`
+},
+
+{
+id:"tuple",
+title:"10. Tuples",
+content:`
+
+<h1>
+Tuples
+</h1>
+
+<p>
+A tuple is an ordered collection that
+cannot normally be changed after creation.
+</p>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>data = (10, 20, 30)
+
+print(data[0])
+
+print(data.count(20))
+
+print(data.index(30))</pre>
+
+</div>
+
+`
+},
+
+{
+id:"sets",
+title:"11. Sets",
+content:`
+
+<h1>
+Sets
+</h1>
+
+<p>
+A set stores unique values.
+</p>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>numbers = {1, 2, 3, 3, 4}
+
+print(numbers)
+
+numbers.add(5)
+
+print(numbers)</pre>
+
+</div>
+
+`
+},
+
+{
+id:"dictionary",
+title:"12. Dictionaries",
+content:`
+
+<h1>
+Dictionaries
+</h1>
+
+<div class="definition">
+
+A dictionary stores information using
+key-value pairs.
+
+</div>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>student = {
+    "name": "Karan",
+    "age": 13,
+    "class": 9
+}
+
+print(student["name"])
+
+print(student.keys())
+print(student.values())</pre>
+
+</div>
+
+`
+},
+
+{
+id:"functions",
+title:"13. Functions",
+content:`
+
+<h1>
+Functions
+</h1>
+
+<p>
+A function is a reusable block of code.
+</p>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>def welcome(name):
+
+    return "Hello " + name
+
+message = welcome("Karan")
+
+print(message)</pre>
+
+</div>
+
+<h2>
+Parameters
+</h2>
+
+<p>
+Parameters are variables inside the
+function definition.
+</p>
+
+<h2>
+return
+</h2>
+
+<p>
+return sends a value back from a function.
+</p>
+
+`
+},
+
+{
+id:"recursion",
+title:"14. Recursion",
+content:`
+
+<h1>
+Recursion
+</h1>
+
+<div class="definition">
+
+Recursion happens when a function calls
+itself.
+
+</div>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>def countdown(n):
+
+    if n == 0:
+        return
+
+    print(n)
+
+    countdown(n - 1)
+
+countdown(5)</pre>
+
+</div>
+
+<p>
+A recursive function needs a base case
+to stop the recursion.
+</p>
+
+`
+},
+
+{
+id:"errors",
+title:"15. Error Handling",
+content:`
+
+<h1>
+Error Handling
+</h1>
+
+<p>
+Python uses try and except to handle errors.
+</p>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>try:
+
+    number = int(input("Enter number: "))
+
+    print(10 / number)
+
+except ValueError:
+
+    print("Enter a valid number")
+
+except ZeroDivisionError:
+
+    print("Cannot divide by zero")
+
+finally:
+
+    print("Program finished")</pre>
+
+</div>
+
+<h2>
+Common Errors
+</h2>
+
+<ul>
+
+<li>SyntaxError</li>
+<li>NameError</li>
+<li>TypeError</li>
+<li>ValueError</li>
+<li>IndexError</li>
+<li>KeyError</li>
+<li>ZeroDivisionError</li>
+
+</ul>
+
+`
+},
+
+{
+id:"files",
+title:"16. File Handling",
+content:`
+
+<h1>
+File Handling
+</h1>
+
+<p>
+File handling allows Python programs
+to work with files.
+</p>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>with open("data.txt", "w") as file:
+
+    file.write("Hello Python")
+
+with open("data.txt", "r") as file:
+
+    data = file.read()
+
+print(data)</pre>
+
+</div>
+
+<h2>
+File Modes
+</h2>
+
+<ul>
+
+<li>r — read</li>
+<li>w — write</li>
+<li>a — append</li>
+<li>x — create</li>
+
+</ul>
+
+`
+},
+
+{
+id:"modules",
+title:"17. Modules",
+content:`
+
+<h1>
+Modules
+</h1>
+
+<p>
+A module is a Python file containing
+reusable code.
+</p>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>import math
+
+print(math.sqrt(25))
+
+print(math.pi)</pre>
+
+</div>
+
+<h2>
+Popular Modules
+</h2>
+
+<ul>
+
+<li>math</li>
+<li>random</li>
+<li>datetime</li>
+<li>os</li>
+<li>json</li>
+
+</ul>
+
+`
+},
+
+{
+id:"oop",
+title:"18. Object-Oriented Programming",
+content:`
+
+<h1>
+Object-Oriented Programming
+</h1>
+
+<p>
+OOP organizes programs around classes
+and objects.
+</p>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>class Student:
+
+    def __init__(self, name):
+
+        self.name = name
+
+    def welcome(self):
+
+        print("Hello", self.name)
+
+
+student = Student("Karan")
+
+student.welcome()</pre>
+
+</div>
+
+<h2>
+OOP Concepts
+</h2>
+
+<ul>
+
+<li>Class</li>
+<li>Object</li>
+<li>Constructor</li>
+<li>Inheritance</li>
+<li>Encapsulation</li>
+<li>Polymorphism</li>
+
+</ul>
+
+`
+},
+
+{
+id:"comprehension",
+title:"19. List Comprehension",
+content:`
+
+<h1>
+List Comprehension
+</h1>
+
+<p>
+List comprehension provides a short way
+to create lists.
+</p>
+
+<div class="code-example">
+
+<div class="code-header">
+Example
+</div>
+
+<button class="copy">
+Copy
+</button>
+
+<pre>squares = [
+    x * x
+    for x in range(10)
+]
+
+print(squares)</pre>
+
+</div>
+
+`
+},
+
+{
+id:"projects",
+title:"20. Python Projects",
+content:`
+
+<h1>
+Python Projects
+</h1>
+
+<p>
+Building projects helps you turn concepts
+into practical programming skills.
+</p>
+
+<h2>
+Beginner Projects
+</h2>
+
+<ul>
+
+<li>Calculator</li>
+<li>Number guessing game</li>
+<li>To-do list</li>
+<li>Password generator</li>
+
+</ul>
+
+<h2>
+Intermediate Projects
+</h2>
+
+<ul>
+
+<li>Student management system</li>
+<li>Quiz application</li>
+<li>Expense tracker</li>
+<li>File organizer</li>
+
+</ul>
+
+<h2>
+Advanced Projects
+</h2>
+
+<ul>
+
+<li>Web API</li>
+<li>Database application</li>
+<li>Automation system</li>
+<li>Machine learning project</li>
+
+</ul>
+
+`
+
+}
+
+];
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+let completed =
+    JSON.parse(
+        localStorage.getItem(
+            "pythonProgress"
+        ) || "[]"
+    );
+
+
+const topicList =
+    document.getElementById(
+        "topicList"
+    );
+
+const content =
+    document.getElementById(
+        "content"
+    );
+
+
+function renderTopics(){
+
+    topicList.innerHTML = "";
+
+    topics.forEach(topic => {
+
+        const button =
+            document.createElement(
+                "button"
+            );
+
+        button.className =
+            "topic";
+
+        button.dataset.id =
+            topic.id;
+
+        button.innerHTML =
+            completed.includes(topic.id)
+            ? "✓ " + topic.title
+            : topic.title;
+
+        button.onclick =
+            () => loadTopic(topic.id);
+
+        topicList.appendChild(
+            button
+        );
+
+    });
+
+}
+
+
+function loadTopic(id){
+
+    const topic =
+        topics.find(
+            t => t.id === id
+        );
+
+    if(!topic) return;
+
+    content.innerHTML = `
+
+        <article class="note">
+
+            ${topic.content}
+
+            <button
+                class="mark-complete"
+                onclick="completeTopic('${topic.id}')">
+
+                ${
+                    completed.includes(topic.id)
+                    ? "✓ Completed"
+                    : "Mark as completed"
+                }
+
+            </button>
+
+        </article>
+
+    `;
+
+    document
+        .querySelectorAll(".topic")
+        .forEach(btn => {
+
+            btn.classList.toggle(
+                "active",
+                btn.dataset.id === id
+            );
+
+        });
+
+    addCopyButtons();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+function completeTopic(id){
+
+    if(!completed.includes(id)){
+
+        completed.push(id);
+
+        localStorage.setItem(
+            "pythonProgress",
+            JSON.stringify(completed)
+        );
+
+    }
+
+    renderTopics();
+
+    updateProgress();
+
+    loadTopic(id);
+
+}
+
+
+function updateProgress(){
+
+    const percentage =
+        Math.round(
+            completed.length /
+            topics.length *
+            100
+        );
+
+    document.getElementById(
+        "progress"
+    ).style.width =
+        percentage + "%";
+
+    document.getElementById(
+        "progressText"
+    ).textContent =
+        percentage +
+        "% completed";
+
+}
+
+
+function searchTopics(){
+
+    const value =
+        document.getElementById(
+            "search"
+        ).value
+        .toLowerCase();
+
+    document
+        .querySelectorAll(".topic")
+        .forEach(button => {
+
+            button.style.display =
+                button.textContent
+                .toLowerCase()
+                .includes(value)
+                ? "block"
+                : "none";
+
+        });
+
+}
+
+
+/* =====================================================
+   COPY BUTTON
+===================================================== */
+
+function addCopyButtons(){
+
+    document
+        .querySelectorAll(".copy")
+        .forEach(button => {
+
+            button.onclick =
+                async () => {
+
+                    const code =
+                        button.parentElement
+                        .querySelector("pre")
+                        .innerText;
+
+                    try{
+
+                        await navigator
+                            .clipboard
+                            .writeText(code);
+
+                        button.textContent =
+                            "Copied!";
+
+                        setTimeout(() => {
+
+                            button.textContent =
+                                "Copy";
+
+                        },1000);
+
+                    }catch{
+
+                        button.textContent =
+                            "Copy failed";
+
+                    }
+
+                };
+
+        });
+
+}
+
+
+/* =====================================================
+   PYTHON RUNNER
+===================================================== */
+
+let pyodide = null;
+
+let pyodideLoading = false;
+
+
+function showRunner(){
+
+    content.innerHTML = `
+
+        <section class="runner">
+
+            <h2>
+                🐍 Python Code Runner
+            </h2>
+
+            <p class="runner-description">
+
+                Write Python code and run it
+                directly inside your browser.
+
+                The Python engine may take a
+                few seconds to load the first time.
+
+            </p>
+
+            <textarea id="codeEditor">name = "Python"
+
+print("Hello", name)
+
+for i in range(5):
+    print(i)</textarea>
+
+            <div class="actions">
+
+                <button
+                    class="primary-btn"
+                    onclick="runPython()">
+
+                    ▶ Run Python
+
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    onclick="clearCode()">
+
+                    Clear
+
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    onclick="loadExample()">
+
+                    Example
+
+                </button>
+
+            </div>
+
+            <div
+                class="output"
+                id="output">
+
+                Output will appear here...
+
+            </div>
+
+        </section>
+
+    `;
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    loadPyodideLibrary();
+
+}
+
+
+function clearCode(){
+
+    document.getElementById(
+        "codeEditor"
+    ).value = "";
+
+    document.getElementById(
+        "output"
+    ).textContent =
+        "Output will appear here...";
+
+}
+
+
+function loadExample(){
+
+    document.getElementById(
+        "codeEditor"
+    ).value =
+
+`name = input("What is your name? ")
+
+print("Welcome", name)
+
+for i in range(1, 6):
+    print("Python", i)`;
+
+}
+
+
+function loadPyodideLibrary(){
+
+    if(
+        pyodide ||
+        pyodideLoading
+    ){
+
+        return;
+
+    }
+
+    pyodideLoading = true;
+
+    const script =
+        document.createElement(
+            "script"
+        );
+
+    script.src =
+        "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js";
+
+    script.onload =
+        async () => {
+
+            try{
+
+                pyodide =
+                    await window.loadPyodide();
+
+                console.log(
+                    "Python engine loaded"
+                );
+
+            }catch(error){
+
+                console.error(error);
+
+            }
+
+        };
+
+    document.head.appendChild(
+        script
+    );
+
+}
+
+
+async function runPython(){
+
+    const output =
+        document.getElementById(
+            "output"
+        );
+
+    const code =
+        document.getElementById(
+            "codeEditor"
+        ).value;
+
+    output.className =
+        "output";
+
+    if(!code.trim()){
+
+        output.textContent =
+            "Write some Python code first.";
+
+        return;
+
+    }
+
+    if(!pyodide){
+
+        output.textContent =
+            "Python engine is still loading. Please click Run again in a few seconds.";
+
+        loadPyodideLibrary();
+
+        return;
+
+    }
+
+    output.textContent =
+        "Running...";
+
+    try{
+
+        let captured = "";
+
+        pyodide.setStdout({
+
+            batched(text){
+
+                captured +=
+                    text + "\n";
+
+            }
+
+        });
+
+        pyodide.setStderr({
+
+            batched(text){
+
+                captured +=
+                    text + "\n";
+
+            }
+
+        });
+
+        await pyodide
+            .runPythonAsync(code);
+
+        output.textContent =
+            captured ||
+            "Program finished with no output.";
+
+    }catch(error){
+
+        output.className =
+            "output error";
+
+        output.textContent =
+            error.toString();
+
+    }
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+renderTopics();
+
+updateProgress();
+
+loadTopic("intro");
+
+
+/* =====================================================
+   KEYBOARD SHORTCUT
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.ctrlKey &&
+            event.key === "Enter"
+        ){
+
+            if(
+                document.getElementById(
+                    "codeEditor"
+                )
+            ){
+
+                runPython();
+
+            }
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
+```
